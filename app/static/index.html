@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>云端图片目标识别应用</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
+
+    <div class="shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">GOOGLE CLOUD VISION API</p>
+          <h1>云端图片目标识别应用</h1>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="card controls">
+          <div class="section-head">
+            <h2>上传图片</h2>
+          </div>
+
+          <form id="analyze-form">
+            <label class="upload-zone" id="upload-zone" for="image-input">
+              <span class="upload-title">选择 JPG / PNG / WEBP 图片</span>
+              <input
+                id="image-input"
+                name="file"
+                type="file"
+                accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+              />
+            </label>
+
+            <div class="button-row">
+              <button id="analyze-button" type="submit" disabled>开始识别</button>
+              <button id="reset-button" type="button" class="secondary">重置</button>
+            </div>
+          </form>
+
+          <div id="status" class="status is-hidden" data-state="idle"></div>
+        </section>
+
+        <section class="card stage">
+          <div class="section-head preview-head">
+            <h2>识别预览</h2>
+            <span id="image-meta" class="section-hint"></span>
+          </div>
+
+          <div id="canvas-shell" class="canvas-shell empty">
+            <div id="empty-state" class="empty-state">未加载图片</div>
+            <img id="preview-image" alt="预览图片" />
+            <canvas id="overlay"></canvas>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="card result-card">
+            <div class="section-head">
+              <h2>标签识别</h2>
+              <span class="count" id="label-count">0</span>
+            </div>
+            <ul id="label-list" class="result-list">
+              <li class="placeholder">暂无结果</li>
+            </ul>
+          </section>
+
+          <section class="card result-card">
+            <div class="section-head">
+              <h2>目标定位</h2>
+              <span class="count" id="object-count">0</span>
+            </div>
+            <ul id="object-list" class="result-list">
+              <li class="placeholder">暂无结果</li>
+            </ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
