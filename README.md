@@ -5,11 +5,11 @@
 项目现在支持两种交付形态：
 
 - 本地演示版：双击启动器或 EXE，本机输入 API Key 后使用
-- 公网在线版：部署到 Cloud Run，生成公网 URL，老师直接通过网址访问
+- 公网在线版：部署到 Cloud Run，生成公网 URL，直接通过网址访问
 
-## 1. 最终推荐交付方式：公网 URL
+## 1. 最终交付方式：公网 URL
 
-如果你的目标是“让老师直接打开网址就能在线使用”，推荐部署到 Cloud Run。
+如果你的目标是“直接打开网址就能在线使用”，推荐部署到 Cloud Run。
 
 部署完成后会得到一个类似下面的公网地址：
 
@@ -17,7 +17,7 @@
 https://vision-object-app-xxxxx-uc.a.run.app
 ```
 
-老师访问这个网址时：
+访问这个网址时：
 
 - 不需要安装任何软件
 - 不需要输入 API Key
@@ -31,7 +31,7 @@ https://vision-object-app-xxxxx-uc.a.run.app
 
 ## 2. Cloud Run 一键部署
 
-推荐在 Google Cloud Cloud Shell 中执行：
+在 Google Cloud Cloud Shell 中执行：
 
 ```bash
 cd ~/gcp-vision-object-app
@@ -50,7 +50,7 @@ chmod +x cloudrun/deploy_cloud_run.sh
 
 ## 3. 本地演示版
 
-如果你还需要在本机答辩演示，可以继续使用桌面启动器版本。
+如果还需要在本机答辩演示，可以继续使用桌面启动器版本。
 
 ### 双击启动
 
@@ -87,7 +87,7 @@ python launcher.py
 - `.dockerignore`
   已排除本地打包产物、汇报材料和虚拟环境，减少云端构建体积。
 - `k8s/`
-  保留了原来的 GKE 结构；如果老师只看最终可访问网址，Cloud Run 会更直接。
+  保留了原来的 GKE 结构；如果只看最终可访问网址，Cloud Run 会更直接。
 
 ## 6. 运行鉴权方式
 
@@ -96,7 +96,7 @@ python launcher.py
 - 本地版：启动器把 `VISION_API_KEY` 写入 `.env.local`
 - 线上版：Cloud Run 从 Secret Manager 注入 `VISION_API_KEY`
 
-这样老师访问时不需要任何凭证。
+这样访问时不需要任何凭证。
 
 ## 7. 文件说明
 
